@@ -41,10 +41,34 @@ public class Player : MonoBehaviour
         //Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         //transform.Translate(direction * _speed * Time.deltaTime);
 
-        if (transform.position.y >= 7.00)
+        //if (transform.position.y >= 7.00)
+        //{
+        //    transform.Translate(new Vector3(transform.position.x, -14.00f,0));
+        //}
+
+        //if(transform.position.y<= -7.00)
+        //{
+        //    transform.Translate(new Vector3(transform.position.x, 14.00f, 0));
+        //}
+
+        if(transform.position.y >= 0)
         {
-            Vector3 direction = new Vector3(transform.position.x, -14.00f, 0);
-            transform.Translate(direction);
+            transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, 0,0), 0);
+        }
+
+        if (transform.position.y <= -4.00)
+        {
+            transform.position = new Vector3(transform.position.x, -4.00f, 0);
+        }
+
+        if (transform.position.x >= 11.40)
+        {
+            transform.Translate(new Vector3(-22.80f, transform.position.y, 0));
+        }
+
+        if (transform.position.x <= -11.40)
+        {
+            transform.Translate(new Vector3(22.80f, transform.position.y, 0));
         }
     }
 }
