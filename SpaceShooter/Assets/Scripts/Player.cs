@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _LaserPrefab;
 
+    [SerializeField]
+    private float _fireRate = 1.5f;
+    private float _canFire = -1;
+
     public float horizontalInput;
     public float verticalInput;
 
@@ -32,15 +36,13 @@ public class Player : MonoBehaviour
 
     void LaserShooting()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
-            Instantiate(_LaserPrefab, transform.position, Quaternion.identity);
+            _canFire = Time.time + _fireRate;
+            Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
         }
 
-        if (_LaserPrefab.transform.position.y >= 9.00)
-        {
-            Destroy(_LaserPrefab);
-        }
+      
 }
     void CalculateMovement()
     {
