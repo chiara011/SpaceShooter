@@ -36,7 +36,12 @@ public class Player : MonoBehaviour
         {
             Instantiate(_LaserPrefab, transform.position, Quaternion.identity);
         }
-    }
+
+        if (_LaserPrefab.transform.position.y >= 9.00)
+        {
+            Destroy(_LaserPrefab);
+        }
+}
     void CalculateMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
