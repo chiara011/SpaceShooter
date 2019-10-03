@@ -20,30 +20,30 @@ public class Player : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         //take the current position to 0,0,0
         transform.position = new Vector3(0, 0, 0);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         CalculateMovement();
-        LaserShooting();
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        {
+            LaserShooting();
+        }
     }
+
 
     void LaserShooting()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
-        {
-            _canFire = Time.time + _fireRate;
-            Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
-        }
-
-      
-}
+     _canFire = Time.time + _fireRate;
+     Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
+    
+    }
     void CalculateMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
