@@ -7,7 +7,11 @@ public class Player : MonoBehaviour
  
     [SerializeField]
     private float _speedHorizontal = 5f;
+    [SerializeField]
     private float _speedVertical = 5f;
+
+    [SerializeField]
+    private GameObject _LaserPrefab;
 
     public float horizontalInput;
     public float verticalInput;
@@ -23,8 +27,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+        LaserShooting();
     }
 
+    void LaserShooting()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_LaserPrefab, transform.position, Quaternion.identity);
+        }
+    }
     void CalculateMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
