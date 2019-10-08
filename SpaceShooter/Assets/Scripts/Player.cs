@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     private GameObject _LaserPrefab;
 
     [SerializeField]
+    private GameObject _Enemy;
+
+    [SerializeField]
     private float _fireRate = 1.5f;
     private float _canFire = -1;
 
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     {
         //take the current position to 0,0,0
         transform.position = new Vector3(0, 0, 0);
+        EnemyCreation();
     }
 
     
@@ -35,8 +39,19 @@ public class Player : MonoBehaviour
         {
             LaserShooting();
         }
+ 
     }
 
+    void EnemyCreation()
+    {
+        
+        Vector3 spawnposition = new Vector3(-8,5.00f,0.00f);
+        for(int i=0; i <= 8; i++) {
+            Instantiate(_Enemy, spawnposition,Quaternion.identity);
+            spawnposition.x = spawnposition.x + 2;
+         }
+
+    }
 
     void LaserShooting()
     {
@@ -91,3 +106,4 @@ public class Player : MonoBehaviour
         }
     }
 }
+

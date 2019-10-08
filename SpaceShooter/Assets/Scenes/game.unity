@@ -314,6 +314,7 @@ MonoBehaviour:
   _speedVertical: 5
   _LaserPrefab: {fileID: 7588885266834266372, guid: 7f68dd7acb06e6b488aca5df20523865,
     type: 3}
+  _Enemy: {fileID: 2685666888096690399, guid: b02bb1b20bcb0430cad3a1afe3a324be, type: 3}
   _fireRate: 0.5
   horizontalInput: 0
   verticalInput: 0
@@ -403,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929555176}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -948, y: -359, z: -1212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
