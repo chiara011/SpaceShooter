@@ -7,9 +7,6 @@ public class Laser : MonoBehaviour
     [SerializeField]
     private float _speedVertical = 8f;
 
-    
-
-    
     void Update()
     {
         LaserMovement();
