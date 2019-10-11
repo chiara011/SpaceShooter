@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
+    [SerializeField]
+    private float _speedVertical = 1.00f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        EnemyMovement();
+        DestroyEnemy();
+
+    }
+
+    void EnemyMovement(){
+        transform.Translate(Vector3.down * _speedVertical * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other){
+        if( other.gameObject.tag == "Laser"){
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+        }
+            
+    }
+
+    
+
+    void DestroyEnemy(){
+        if (transform.position.y <= -9.00f)
+        {
+           Destroy(this.gameObject);
+       }
     }
 }
+

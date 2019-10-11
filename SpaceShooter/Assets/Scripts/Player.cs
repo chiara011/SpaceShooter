@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     private float _fireRate = 1.5f;
     private float _canFire = -1;
 
+    private float _canSpawn= -1;
+    [SerializeField]
+    private float _spawnRate = 0.5f;
+
     public float horizontalInput;
     public float verticalInput;
 
@@ -28,6 +32,7 @@ public class Player : MonoBehaviour
     {
         //take the current position to 0,0,0
         transform.position = new Vector3(0, 0, 0);
+        
         EnemyCreation();
     }
 
@@ -35,29 +40,31 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
-        {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire){
             LaserShooting();
+        }
+
+        if(Time.time >_canSpawn){
+            EnemyCreation();
         }
  
     }
 
     void EnemyCreation()
     {
-        
-        Vector3 spawnposition = new Vector3(-8,5.00f,0.00f);
+
+        _canSpawn = Time.time + _spawnRate;
+        Vector3 spawnposition = new Vector3(-8,7.00f,0.00f);
         for(int i=0; i <= 8; i++) {
             Instantiate(_Enemy, spawnposition,Quaternion.identity);
             spawnposition.x = spawnposition.x + 2;
-         }
-
+        } 
     }
 
     void LaserShooting()
     {
      _canFire = Time.time + _fireRate;
      Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
-    
     }
     void CalculateMovement()
     {
