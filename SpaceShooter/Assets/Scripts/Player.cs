@@ -18,11 +18,16 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     public float horizontalInput;
     public float verticalInput;
+    private SpawnManager _spawnManager;
 
     
     void Start()
     { 
-        transform.position = new Vector3(0, 0, 0); 
+        transform.position = new Vector3(0, 0, 0);
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+
+        if (_spawnManager == null)
+            Debug.LogError("The Spawn Manager is NULL");
     }
 
     
@@ -74,8 +79,10 @@ public class Player : MonoBehaviour
     {
         _lives--;
 
-        if (_lives == 0)
+        if (_lives == 0){
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
+        }
     }
 }
 
