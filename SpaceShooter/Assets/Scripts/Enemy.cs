@@ -32,10 +32,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other){
-        Debug.Log("hi");
+    private void OnTriggerEnter2D(Collider2D other){
         if( other.gameObject.tag == "Laser"){
-            Debug.Log("Hit: " + other.transform.name);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
