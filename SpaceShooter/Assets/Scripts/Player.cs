@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
      _canFire = Time.time + _fireRate;
 
      if(_tripleShotActive == true)
-        Instantiate (_tripleShotPrefab,transform.position, Quaternion.identity);
+        Instantiate (_tripleShotPrefab, new Vector3(transform.position.x -0.64f,transform.position.y + 0.1f,transform.position.z -8.58f), Quaternion.identity);
      else
         Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 1.05f, transform.position.z), Quaternion.identity);
     }
@@ -91,6 +91,18 @@ public class Player : MonoBehaviour
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+    }
+
+    public void TripleShotActive(){
+
+        _tripleShotActive = true;
+        StartCouroutine(TripleShot());
+        
+    }
+
+    IEnumerator TripleShot(){
+           yield return new WaitForSeconds(5);
+           _tripleShotActive = false;  
     }
 }
 
