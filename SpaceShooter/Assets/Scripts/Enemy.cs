@@ -8,13 +8,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speedVertical = 4.00f;
 
-    void Start()
-    {
+    void Start(){
         
     }
 
-    void Update()
-    {
+    void Update(){
         EnemyMovement();
         RespawnEnemy();
     }
@@ -23,8 +21,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.down * _speedVertical * Time.deltaTime);
     }
 
-    void RespawnEnemy()
-    {
+    void RespawnEnemy(){
         if(transform.position.y <= -5.24f)
         {
             float randomX = Random.Range(-8f, 8f);

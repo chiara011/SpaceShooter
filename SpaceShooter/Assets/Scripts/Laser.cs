@@ -6,18 +6,25 @@ public class Laser : MonoBehaviour
 {
     [SerializeField]
     private float _speedVertical = 8f;
+    [SerializeField]
+    private GameObject _tripleShotPrefab;
 
-    void Update()
-    {
+
+
+    void Update(){
         LaserMovement();
         DestroyLaser();
 
     }
 
     void DestroyLaser(){
+
         if (transform.position.y >= 9.00)
         {
-           Destroy(this.gameObject);
+            if(transform.parent)
+                Destroy(transform.parent.gameObject);
+        
+            Destroy(this.gameObject);
        }
     }
 

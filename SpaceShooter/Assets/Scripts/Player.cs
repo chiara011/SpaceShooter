@@ -25,8 +25,7 @@ public class Player : MonoBehaviour
     private GameObject _tripleShotPrefab;
 
     
-    void Start()
-    { 
+    void Start(){ 
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
 
@@ -35,8 +34,7 @@ public class Player : MonoBehaviour
     }
 
     
-    void Update()
-    {
+    void Update(){
         CalculateMovement();
        
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire){
@@ -46,8 +44,7 @@ public class Player : MonoBehaviour
 
 
 
-    void LaserShooting()
-    {
+    void LaserShooting(){
      _canFire = Time.time + _fireRate;
 
      if(_tripleShotActive == true)
@@ -55,8 +52,7 @@ public class Player : MonoBehaviour
      else
         Instantiate(_LaserPrefab, new Vector3(transform.position.x, transform.position.y + 1.05f, transform.position.z), Quaternion.identity);
     }
-    void CalculateMovement()
-    {
+    void CalculateMovement(){
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
@@ -96,7 +92,7 @@ public class Player : MonoBehaviour
     public void TripleShotActive(){
 
         _tripleShotActive = true;
-        StartCouroutine(TripleShot());
+        StartCoroutine(TripleShot());
         
     }
 
