@@ -4,8 +4,10 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
-Assets/Animation/*.ainm
-Assets/2D Galaxy Assets/*.png
+*anim
+*png
+*wav
+*shader
 
 # Visual Studio cache directory
 .vs/
