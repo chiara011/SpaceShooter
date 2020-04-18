@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: cee74f4c7e0751945b95c5ce8b1bf623
+guid: 3b5929bc5ed38d142b06e65236ed6c35
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - _tripleShotPrefab: {fileID: 780420278275056775, guid: 31b08dfc8d4949541ad17d814546e08d,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

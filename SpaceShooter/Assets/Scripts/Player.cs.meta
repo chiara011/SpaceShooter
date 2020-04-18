@@ -8,6 +8,8 @@ MonoImporter:
       type: 3}
   - _tripleShotPrefab: {fileID: 4450771365336851571, guid: 76744657fcef74ba983ff99294649e00,
       type: 3}
+  - _speedPrefab: {fileID: 6430556786775171305, guid: e3ff51f42a11c8b4f967e15358f5df30,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

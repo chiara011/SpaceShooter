@@ -7,8 +7,11 @@ MonoImporter:
   - _Enemy: {fileID: 2685666888096690399, guid: b02bb1b20bcb0430cad3a1afe3a324be,
       type: 3}
   - _enemyContainer: {instanceID: 0}
-  - _powerupContainer: {instanceID: 0}
-  - _tripleShotPrefab: {fileID: 780420278275056775, guid: 31b08dfc8d4949541ad17d814546e08d,
+  - _tripleShotPowerUpPrefab: {fileID: 780420278275056775, guid: 31b08dfc8d4949541ad17d814546e08d,
+      type: 3}
+  - _speedPowerUpPrefab: {fileID: 6430556786775171305, guid: e3ff51f42a11c8b4f967e15358f5df30,
+      type: 3}
+  - _shieldPowerUpPrefab: {fileID: 9067064879973922701, guid: 7aaae8892f3f1f546bec67519e2c7e84,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
